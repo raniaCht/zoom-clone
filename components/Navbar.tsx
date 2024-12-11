@@ -1,3 +1,4 @@
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import React from "react";
 
@@ -8,7 +9,9 @@ function Navbar() {
         <Image src="/icons/logo.svg" width={32} height={32} alt="logo" />
         <p className="text-3xl font-extrabold">Room</p>
       </div>
-      <div className="bg-white rounded-full w-8 h-8"></div>
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
     </div>
   );
 }

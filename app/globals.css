@@ -80,3 +80,26 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.cl-internal-1dauvpw,
+.cl-buttonArrowIcon,
+.cl-userButtonPopoverFooter {
+  display: none;
+}
+
+.cl-socialButtonsProviderIcon__github {
+  filter: invert(2);
+}
+
+.cl-dividerLine {
+  background: #ffffff07;
+}
+
+.cl-formFieldInputShowPasswordIcon,
+.cl-userButtonPopoverActionButton {
+  color: #fff;
+}
+
+.cl-userButtonPopoverActionButton:hover {
+  color: #ffffff;
+}
