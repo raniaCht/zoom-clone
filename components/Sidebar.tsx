@@ -10,7 +10,7 @@ import React from "react";
 function Sidebar() {
   const pathname = usePathname();
   return (
-    <div className="min-w-64 bg-dark-1 sticky top-0 left-0 h-screen pt-24 max-sm:hidden">
+    <div className="lg:min-w-64 bg-dark-1 sticky top-0 left-0 h-screen pt-24 max-sm:hidden">
       <div className="flex flex-col items-start px-3 gap-4">
         {sidebarLinks.map((link, index) => {
           const isActive =
@@ -28,7 +28,7 @@ function Sidebar() {
               )}
             >
               <Image src={link.icon} width={24} height={24} alt={link.label} />
-              <p>{link.label}</p>
+              <p className="max-md:hidden">{link.label}</p>
             </Link>
           );
         })}
