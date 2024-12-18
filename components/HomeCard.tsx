@@ -5,13 +5,13 @@ export type homeCardType = {
   icon: string;
   title: string;
   description: string;
-  url: string;
   bg: string;
+  onClick: () => void;
 };
 
-function HomeCard({ icon, title, description, url, bg }: homeCardType) {
+function HomeCard({ icon, title, description, bg, onClick }: homeCardType) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col cursor-pointer" onClick={onClick}>
       <div
         className={`flex-1 w-full aspect-square p-5 rounded-lg flex gap-10 flex-col justify-between items-start ${bg}`}
       >

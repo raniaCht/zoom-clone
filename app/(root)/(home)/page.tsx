@@ -1,41 +1,10 @@
-import HomeCard, { homeCardType } from "@/components/HomeCard";
+import ListHomeCard from "@/components/ListHomeCard";
 import MeetingCard from "@/components/MeetingCard";
 import Link from "next/link";
 import React from "react";
 
 function Home() {
   const now = new Date();
-
-  const homeCards: homeCardType[] = [
-    {
-      bg: "bg-orange-600",
-      description: "Setup a new recording",
-      icon: "/icons/add-meeting.svg",
-      title: "New Meeting",
-      url: "/",
-    },
-    {
-      bg: "bg-sky-600",
-      description: "via invitation link",
-      icon: "/icons/join-meeting.svg",
-      title: "Join Meeting",
-      url: "/",
-    },
-    {
-      bg: "bg-violet-600",
-      description: "Plan your meeting",
-      icon: "/icons/schedule.svg",
-      title: "Schedule Meeting",
-      url: "/",
-    },
-    {
-      bg: "bg-yellow-500",
-      description: "Meeting recordings",
-      icon: "/icons/Video.svg",
-      title: "View Recordings",
-      url: "/",
-    },
-  ];
 
   const time = now.toLocaleTimeString("en-US", {
     hour: "2-digit",
@@ -57,18 +26,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {homeCards.map((card, i) => (
-          <HomeCard
-            bg={card.bg}
-            description={card.description}
-            icon={card.icon}
-            title={card.title}
-            url={card.url}
-            key={i}
-          />
-        ))}
-      </div>
+      <ListHomeCard />
       <div className="flex  flex-col gap-7">
         <div className="flex-between w-full">
           <h1 className="text-lg md:text-4xl font-bold">
