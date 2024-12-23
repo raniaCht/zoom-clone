@@ -19,7 +19,11 @@ function page() {
     <div className="w-full h-screen">
       <StreamCall call={call}>
         <StreamTheme>
-          {isSetupComplete ? <MeetingRoom /> : <MeetingSetup />}
+          {isSetupComplete ? (
+            <MeetingRoom />
+          ) : (
+            <MeetingSetup setIsSetupComplete={setIsSetupComplete} />
+          )}
         </StreamTheme>
       </StreamCall>
     </div>

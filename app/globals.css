@@ -191,3 +191,34 @@ body {
   -webkit-animation-delay: 0.75s;
   animation-delay: 0.75s;
 }
+
+.str-video__dropdown-selected {
+  border: 1px solid;
+  width: 300px;
+  padding: 4px 16px;
+  border-radius: 20px;
+  background: #252a41;
+}
+
+.str-video__dropdown-list {
+  box-shadow: #252a411a 0px 1px 3px 0px, #252a410f 0px 1px 2px 0px;
+  background: #252a41;
+  border-radius: 8px;
+  margin-top: 4px;
+}
+
+.str-video__dropdown-option {
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.str-video__dropdown-option:hover {
+  background: #0e78f9;
+  cursor: pointer;
+}
+
+.str-video__device-settings__device-selector-title {
+  text-align: center;
+  margin-bottom: 4px;
+}
