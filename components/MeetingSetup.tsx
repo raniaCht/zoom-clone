@@ -41,11 +41,13 @@ function MeetingSetup({
         </label>
       </div>
 
-      <DeviceSelectorVideo visualType="dropdown" title="Choose the camera" />
+      {/* <DeviceSelectorVideo visualType="dropdown" title="Choose the camera" />
       <DeviceSelectorAudioInput
         visualType="dropdown"
         title="Choose the microphone"
-      />
+      /> */}
+
+      <DeviceSettings />
 
       <Button
         className="bg-green-600"

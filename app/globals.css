@@ -191,7 +191,7 @@ body {
   -webkit-animation-delay: 0.75s;
   animation-delay: 0.75s;
 }
-
+/* 
 .str-video__dropdown-selected {
   border: 1px solid;
   width: 300px;
@@ -221,4 +221,4 @@ body {
 .str-video__device-settings__device-selector-title {
   text-align: center;
   margin-bottom: 4px;
-}
+} */
