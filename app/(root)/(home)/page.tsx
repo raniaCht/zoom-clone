@@ -34,10 +34,10 @@ function Home() {
           </h1>
           <Link href="/upcoming">See all</Link>
         </div>
-        <div className="grid lg:grid-cols-2 gap-4">
+        {/* <div className="grid lg:grid-cols-2 gap-4">
           <MeetingCard />
           <MeetingCard />
-        </div>
+        </div> */}
       </div>
     </section>
   );

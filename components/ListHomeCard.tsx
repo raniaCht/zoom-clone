@@ -30,7 +30,7 @@ function ListHomeCard() {
   const [callDetail, setCallDetail] = useState<Call>();
   const { toast } = useToast();
 
-  const startMeeting = async () => {
+  const createMeeting = async () => {
     if (!user || !client) return;
 
     try {
@@ -38,8 +38,11 @@ function ListHomeCard() {
       const callId = crypto.randomUUID();
       const call = client.call(callType, callId);
       if (!call) throw new Error("failed to start  call");
+      console.log(values);
+
       const startsAt =
         values.dateTime?.toISOString() || new Date().toISOString();
+
       const description = values.description || "Instant Meeting";
       await call.getOrCreate({
         data: {
@@ -109,9 +112,7 @@ function ListHomeCard() {
         <MeetingModal
           isOpen={meetingState === "isScheduleMeeting"}
           close={() => setMeetingState(undefined)}
-          handleClick={() => {
-            alert("Meeting created");
-          }}
+          handleClick={createMeeting}
           title="Create Meeting"
           buttonText="Create Meeting"
         >
@@ -144,7 +145,8 @@ function ListHomeCard() {
           close={() => setMeetingState(undefined)}
           handleClick={() => {
             navigator.clipboard.writeText(meetingLink);
-            alert("Link copied");
+            toast({ title: "Link copied" });
+            // setMeetingState(undefined);
           }}
           title="Create Meeting"
           image="/icons/checked.svg"
@@ -155,7 +157,7 @@ function ListHomeCard() {
       <MeetingModal
         isOpen={meetingState === "isInstantMeeting"}
         close={() => setMeetingState(undefined)}
-        handleClick={startMeeting}
+        handleClick={createMeeting}
         title="Start a new meeting"
         buttonText="Create a new meet"
       />

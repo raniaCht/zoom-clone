@@ -1,3 +1,4 @@
+"use client";
 import { useUser } from "@clerk/nextjs";
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useEffect, useState } from "react";
@@ -40,14 +41,14 @@ export const useGetCalls = () => {
     return (startsAt && new Date(startsAt) < now) || !!endedAt;
   });
 
-  const upcomingCalls = calls.filter(({ state: { startsAt } }: Call) => {
+  const upcomingCalls = calls?.filter(({ state: { startsAt } }: Call) => {
     return startsAt && new Date(startsAt) > now;
   });
 
   return {
     endedCalls,
     upcomingCalls,
-    recordings: calls,
+    recordingCalls: calls,
     isLoading,
   };
 };
