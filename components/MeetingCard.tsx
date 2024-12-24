@@ -1,7 +1,7 @@
-import { Call } from "@stream-io/video-react-sdk";
 import Image from "next/image";
 import React from "react";
 import { avatarImages } from "@/constants";
+import CopyLink from "./CopyLink";
 
 interface MeetingCardProps {
   title: string;
@@ -48,21 +48,16 @@ function MeetingCard({
         </div>
         {!isPreviousMeeting && (
           <div className="flex justify-end items-center gap-2">
-            <button className="bg-sky-1 py-3 px-4 rounded-lg flex-center gap-1">
+            <button
+              className="bg-sky-1 py-3 px-4 rounded-lg flex-center gap-1"
+              onClick={handleClick}
+            >
               {buttonText}
               {buttonIcon && (
                 <Image src={buttonIcon} width={14} height={14} alt="" />
               )}
             </button>
-            <button
-              className="flex-center gap-2 bg-dark-3 py-3 px-4 rounded-lg"
-              onClick={() => {
-                navigator.clipboard.writeText(link);
-              }}
-            >
-              <Image src="/icons/copy.svg" width={14} height={14} alt="" />
-              <span>Copy invitation</span>
-            </button>
+            <CopyLink link={link} text="Copy invitation" />
           </div>
         )}
       </div>

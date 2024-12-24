@@ -6,11 +6,13 @@ import {
   SpeakerLayout,
 } from "@stream-io/video-react-sdk";
 import { Users } from "lucide-react";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 type CallLayoutType = "speaker-left" | "speaker-right" | "grid";
 
 function MeetingRoom() {
+  const router = useRouter();
   const [layout, setLayout] = useState<CallLayoutType>("speaker-left");
   const [showParticipants, setShowParticipants] = useState(true);
 
@@ -41,7 +43,7 @@ function MeetingRoom() {
         </div>
       </div>
       <div className="flex-center fixed bottom-0 gap-5 w-full">
-        <CallControls />
+        <CallControls onLeave={() => router.push("/")} />
         <button
           className="bg-[#19232d] w-9 h-9 flex-center rounded-full"
           onClick={() => setShowParticipants(!showParticipants)}

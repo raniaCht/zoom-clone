@@ -38,7 +38,6 @@ function ListHomeCard() {
       const callId = crypto.randomUUID();
       const call = client.call(callType, callId);
       if (!call) throw new Error("failed to start  call");
-      console.log(values);
 
       const startsAt =
         values.dateTime?.toISOString() || new Date().toISOString();

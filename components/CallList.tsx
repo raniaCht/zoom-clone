@@ -56,17 +56,33 @@ function CallList({
   if (isLoading) return <Loader />;
   return calls.length > 0 ? (
     <section className="grid lg:grid-cols-2 gap-4">
-      {calls.map((meeting: Call | CallRecording) => (
+      {calls.map((meeting: Call | CallRecording, index) => (
         <MeetingCard
-          key={(meeting as Call).id}
+          key={index}
           title={
             (meeting as Call).state?.custom?.description ||
             (meeting as CallRecording).filename?.substring(0, 20) ||
             "No Description"
           }
           date={
-            (meeting as Call).state?.startsAt?.toLocaleString() ||
-            (meeting as CallRecording).start_time?.toLocaleString()
+            (meeting as Call).state?.startsAt?.toLocaleString("en-US", {
+              month: "short",
+              day: "2-digit",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: true,
+            }) ||
+            new Date(
+              (meeting as CallRecording).start_time?.toLocaleString()
+            ).toLocaleString("en-US", {
+              month: "short",
+              day: "2-digit",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: true,
+            })
           }
           handleClick={
             type === "recodingCall"

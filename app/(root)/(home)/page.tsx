@@ -27,18 +27,6 @@ function Home() {
         </div>
       </div>
       <ListHomeCard />
-      <div className="flex  flex-col gap-7">
-        <div className="flex-between w-full">
-          <h1 className="text-lg md:text-4xl font-bold">
-            Today’s Upcoming Meetings
-          </h1>
-          <Link href="/upcoming">See all</Link>
-        </div>
-        {/* <div className="grid lg:grid-cols-2 gap-4">
-          <MeetingCard />
-          <MeetingCard />
-        </div> */}
-      </div>
     </section>
   );
 }
